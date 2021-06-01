@@ -6,7 +6,8 @@ class CreateTeam extends Component {
         name: ""
     }
     handleChange = (e) => {this.setState({[e.target.name]: e.target.value})}
-    handleSubmit = () => {
+    handleSubmit = (e) => {
+        e.preventDefault();
         this.props.postToCollection(this.state.name, this.props.team)
     }
 
@@ -20,8 +21,11 @@ class CreateTeam extends Component {
                     addToTeam={this.props.addToTeam}/>)}
                 </div>
                 <div className="collection">
-                    {this.props.team.length === 3 ? <input onChange= {this.handleChange} placeholder="name your team..." name="name"/> : null}   
-                    {this.props.team.length === 3 ? <button onClick={this.handleSubmit}>Add to Collection</button> : null}
+                    {this.props.team.length === 3 ?
+                     <form onSubmit={e => this.handleSubmit(e)}>
+                     <input onChange= {this.handleChange} placeholder="name your team..." name="name" required/>    
+                     <button>Add to Collection</button>
+                 </form>: null}
                 </div>
             </div>
         )

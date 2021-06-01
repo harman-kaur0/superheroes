@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_30_063542) do
-
-  create_table "collections", force: :cascade do |t|
-    t.string "name"
-    t.string "team"
-  end
+ActiveRecord::Schema.define(version: 2021_06_01_013709) do
 
   create_table "superheros", force: :cascade do |t|
     t.string "name"
@@ -29,6 +24,18 @@ ActiveRecord::Schema.define(version: 2021_05_30_063542) do
     t.string "height"
     t.string "weight"
     t.string "image"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "team"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.string "name"
   end
 
 end

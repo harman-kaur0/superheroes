@@ -2,14 +2,17 @@ import './App.css';
 import React, {Component} from "react"
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import Navbar from "./Container/Navbar"
-import Home from "./Container/Home"
+import BuildYourTeam from "./Container/BuildYourTeam"
 import Collection from "./Container/Collection"
+import Home from "./Container/Home"
+
 
 
 // https://superheroapi.com/api/103705271929301/search/gladiator
 
 const url = "http://localhost:9393/superheros"
-const collectionUrl = "http://localhost:9393/collections"
+const userUrl = "http://localhost:9393/users/"
+const teamUrl = "http://localhost:9393/teams/"
 
 class App extends Component{
   state = { 
@@ -17,12 +20,12 @@ class App extends Component{
     filteredSuperheroes: [],
     superhero: null,
     team: [],
-    collection: []
+    collection: [],
+    currentUser: null
   }
 
   componentDidMount(){
-    fetch(url).then(resp => resp.json()).then(data => this.setState({superheroes: data.superhero, filteredSuperheroes: data.superhero}))
-    fetch(collectionUrl).then(resp => resp.json()).then(data => this.setState({collection: data.collection}))
+    fetch(url).then(resp => resp.json()).then(data => this.setState({superheroes: data.superhero, filteredSuperheroes: data.superhero}));
   }
 
   search = e => {
@@ -54,13 +57,23 @@ class App extends Component{
 
   postToCollection = (name, team) => {
     let teamNames = team.map(hero => hero.name).join(", ")
-    let obj= {name: name, team: teamNames}
+    let obj= {collection_id: 2, name: name, team: teamNames}
     let reqPackage = {
       headers: {"Content-Type":"application/json"},
       method: "POST",
       body: JSON.stringify(obj)
     }
-    fetch(collectionUrl, reqPackage).then(res => res.json()).then(data => this.setState({collection: [...this.state.collection, data.collection]}))
+    fetch(teamUrl, reqPackage).then(res => res.json()).then(data => this.setState({collection: [...this.state.collection, data.collection], team:[]}))
+  }
+
+  deleteTeam = id => {
+    fetch(teamUrl+id, {method: "DELETE"})
+    let filter = this.state.collection.filter(team => team.id !== id)
+    this.setState({collection: filter})
+  }
+
+  updateUser = (user, team) => {
+    this.setState({currentUser: user, collection: team})
   }
 
   render(){
@@ -68,12 +81,17 @@ class App extends Component{
       <div>
         <Router>
           <Navbar/>
-          <Route exact path= "/" render={() => <Home filteredSuperheroes={this.state.filteredSuperheroes} search={this.search} 
+          <Route exact path="/" render={() => <Home updateUser={this.updateUser} currentUser={this.state.currentUser}/>}/>
+          <Route exact path= "/createTeam" render={() => <BuildYourTeam filteredSuperheroes={this.state.filteredSuperheroes} search={this.search} 
           viewDetails={this.viewDetails} superhero={this.state.superhero} 
           handleClick={this.handleClick} addToTeam={this.addToTeam}
           team = {this.state.team} postToCollection={this.postToCollection}/>
           } />
-          <Route exact path= "collection" render= {() => <Collection collection={this.state.collection}/>}/>
+          <Route exact path= "/collection" render= {() => 
+          <Collection 
+          collection={this.state.collection} viewDetails={this.viewDetails} 
+          superheroes={this.state.superheroes} isFlipped={this.handleFlip}
+          deleteTeam = {this.deleteTeam}/>}/>
         </Router>
       </div>
     )

@@ -1,7 +1,10 @@
 Superhero.destroy_all
-Collection.destroy_all
+User.destroy_all
+Team.destroy_all
 
-collection1= Collection.create(name:"Collection1", team:"magneto, batman, deadpool, kingpin")
+harman = User.create(username: "harman", password: "harman")
+
+Team.create(user: harman, name: "team 1", team: "magneto, batman, superman")
 
 magneto= Superhero.create(name: "Magneto", intelligence:88, strength:80, speed:27, durability:84, power:91, combat:80, gender:"Male", height:"6ft 2in", weight:"190 lb", image:"https://www.superherodb.com/pictures2/portraits/10/100/12.jpg")
 batman= Superhero.create(name: "Batman", intelligence:81, strength:40, speed:29, durability:55, power:63, combat:90, gender:"Male", height:"5ft 10in", weight:"170 lb", image:"https://www.superherodb.com/pictures2/portraits/10/100/1496.jpg")
