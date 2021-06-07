@@ -7,7 +7,11 @@ class Home extends Component {
             <div>
                 {this.props.currentUser ? 
                 <><h2>You are now logged in as {this.props.currentUser.username}</h2>
-                <img className= "homeImg" src="https://wallpapercave.com/wp/wp6706903.jpg"/></> : 
+                <div className="logOut">
+                    <button onClick = {this.props.logOut}>Log Out</button>
+                </div>  
+                <img className= "homeImg" src="https://wallpapercave.com/wp/wp6706903.jpg"/>   
+              </> : 
                 <Login updateUser={this.props.updateUser}/>}
             </div>
         )

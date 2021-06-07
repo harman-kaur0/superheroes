@@ -12,17 +12,6 @@ const SuperheroDetails = ({superhero, handleClick, addToTeam}) => {
                 <table>
                     <tbody>
                         <tr>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>Gender: </th>
-                            <td>{superhero.height}</td>
-                        </tr>
-                        <tr>
-                            <th>Weight: </th>
-                            <td>{superhero.weight}</td>
-                        </tr>
-                        <tr>
                             <th>Intelligence: </th>
                             <td>{superhero.intelligence}</td>
                         </tr>

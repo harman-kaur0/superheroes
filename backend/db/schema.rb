@@ -20,9 +20,6 @@ ActiveRecord::Schema.define(version: 2021_06_01_013709) do
     t.integer "durability"
     t.integer "power"
     t.integer "combat"
-    t.string "gender"
-    t.string "height"
-    t.string "weight"
     t.string "image"
   end
 

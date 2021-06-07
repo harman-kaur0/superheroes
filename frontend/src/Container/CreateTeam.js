@@ -15,7 +15,7 @@ class CreateTeam extends Component {
         return(
             <div>
                 <h2>Build Your Team</h2>
-                <p>limit of 3 per team</p>
+                {/* <p>limit of 3 per team</p> */}
                 <div className="alignTeam">
                     {this.props.team.map(hero => <MyTeam hero={hero} key={hero.id} viewDetails={this.props.viewDetails} 
                     addToTeam={this.props.addToTeam}/>)}

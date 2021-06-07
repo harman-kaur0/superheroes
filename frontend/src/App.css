@@ -1,17 +1,43 @@
 .navbar{
-  background-color: aquamarine;
-  margin: 20px;
+  background-image: linear-gradient(to bottom right, aquamarine, yellow);
+  padding: 3vh;
+  text-align: center;
+}
+
+.home {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: large;
+  cursor: pointer;
+  margin: 30px;
+  color: red;
+  text-decoration: none;
+}
+
+.superHeroCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.heroes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: center;
 }
 
 .card {
   text-align: center;
   border: grey solid 1px;
   padding: 1rem;
-  width: 15rem;
-  height: 25rem;
+  width: 13rem;
+  height: 22rem;
   display: inline-grid;
   margin: 1rem 2rem;
-  box-shadow: 3px 4px aquamarine
+  box-shadow: 3px 4px aquamarine;
+  cursor: pointer;
 }
 
 .team {
@@ -22,7 +48,8 @@
   height: 15rem;
   display: inline-grid;
   margin: 1rem 2rem;
-  box-shadow: 3px 4px red
+  box-shadow: 3px 4px red;
+  cursor: pointer;
 }
 
 .teamCard {
@@ -33,7 +60,8 @@
   height: 12rem;
   display: inline-grid;
   margin: 1rem 2rem;
-  box-shadow: 3px 4px red
+  box-shadow: 3px 4px red;
+  cursor: pointer;
 }
 
 .teamImg {
@@ -63,18 +91,24 @@ button {
   background-color: aquamarine;
   border: none;
   border-radius: 5px;
-  height: 2.5rem;
+  height: 2 rem;
   width: max-content;
   color: red;
   font-size: 15px;
   justify-self: center;
   margin-top: 5px;
+  box-shadow: 3px 3px #888888;
+}
+
+.battle {
+  margin-right: 20px;
 }
 
 button:hover {
   background-color: red;
   border: aquamarine solid 1px;
   color: aquamarine;
+  cursor: pointer;
 }
 
 .cards {
@@ -91,7 +125,9 @@ button:hover {
   }
 
   p {
+    text-align: center;
     font-size: 13px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
   .bio {
@@ -110,6 +146,7 @@ button:hover {
 
   h1 {
     text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   table{
     border: 1px solid rgb(95, 93, 93);
@@ -127,8 +164,8 @@ button:hover {
     text-align: center;
   }
 
-  tr:nth-child(even) {background-color: rgb(247, 112, 112);}
-  tr:nth-child(odd) {background-color: aquamarine;}
+  tr:nth-child(even) {background-color: rgb(243, 211, 211);}
+  tr:nth-child(odd) {background-color: rgb(225, 248, 240);}
 
 
 .search {
@@ -141,11 +178,10 @@ button:hover {
 
 h2 {
   text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-p {
-  text-align: center;
-}
+
 
 .collection {
   display: flex;
@@ -203,9 +239,43 @@ p {
   transform: rotateY(180deg);
 }
 
-.form {
+.form, .form2{
   display: flex;
   flex-direction: column;
+  border: 5px solid black;
+  border-radius: 15px;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  width: 70vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.form {
+  background-image: url("https://i.pinimg.com/originals/3b/b0/10/3bb010fe0b81131310394bfea8827104.gif");
+}
+
+.form2 {
+  background-image: url("https://i.gifer.com/TssN.gif");
+}
+
+.form2 .name {
+  margin-right: 167px;
+}
+
+.form2 .confirmPass {
+  margin-right: 80px;
+}
+
+.form label, .form2 label{
+  margin-right: 140px;
+  font-weight: bolder;
+}
+
+.form input, .form2 input {
+  width: 30vh;
+  border: 2px solid black;
 }
 
 .login {
@@ -213,6 +283,7 @@ p {
   align-items: center;
   justify-content: center;
   vertical-align: middle;
+  height: 90vh;
 }
 
 .homeImg {
@@ -220,3 +291,178 @@ p {
   margin: 0 auto;
   width: 100%;
 }
+
+.btnContainer button {
+  margin: 10px;
+}
+
+.loginBtn {
+  display: flex;
+  align-self: center;
+}
+
+.logOut {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 10px;
+}
+
+.info img{
+  width: 100px;
+}
+
+.enemyTeam, .myTeam {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+}
+
+.endingImg {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
+.battleGround {
+  height: 80vh;
+}
+
+.startOver {
+  display: flex;
+  justify-content: space-between;
+}
+
+.startOver button {
+  position: relative;
+  background-color: black;
+  border: none;
+  height: 2.5rem;
+  width: max-content;
+  color: white;
+  font-size: 15px;
+  justify-self: center;
+  margin-top: 5px;
+  box-shadow: 3px 3px #888888;
+}
+.startOver button:hover {
+  background-color: black;
+  border: red solid 1px;
+  color: red;
+  cursor: pointer;
+}
+
+.enemyTeam {
+  border-bottom: 3px solid black;
+}
+
+.info {
+  display: flex;
+  width: 33%;
+  height: 20vh;
+  align-items: center;
+}
+
+.myTeam {
+  margin-top: auto;
+  border-top: 3px solid black;
+}
+
+.battleContainer {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.battleHero img {
+  width: 200px;
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+  border-radius: 30px;
+  border: 5px solid black;
+}
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.battleHero {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border: 1px solid black;
+  height: 50vh;
+}
+
+
+.healthContainer {
+  border: 2px solid black;
+  width: 15vh;
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.statsInfo {
+  display: flex;
+  width: 100%;
+}
+
+.stats {
+  width: 50%;
+}
+
+.battleBtn {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hp {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.healthBar {
+  height: 100%;
+  width: 100%;
+}
+
+.statInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+

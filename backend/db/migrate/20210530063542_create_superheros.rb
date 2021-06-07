@@ -8,9 +8,6 @@ class CreateSuperheros < ActiveRecord::Migration[5.2]
       t.integer :durability
       t.integer :power
       t.integer :combat
-      t.string :gender
-      t.string :height
-      t.string :weight
       t.string :image
     end
   end
