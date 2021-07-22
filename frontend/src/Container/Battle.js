@@ -49,7 +49,9 @@ class Battle extends Component {
    }
 
    playAgain = () => {
-       this.setState({enemyTeam: this.props.randomTeam, myTeam: this.props.battleTeam, won:false, draw: false, lose: false, battleOver: false})
+       this.props.defendentTeam(() => {
+        this.setState({enemyTeam: this.props.randomTeam, myTeam: this.props.battleTeam, won:false, draw: false, lose: false, battleOver: false})
+       })
    }
 
    calculateDamage = (attacker, defender) => {

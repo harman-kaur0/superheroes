@@ -88,14 +88,21 @@ class App extends Component{
     this.setState({currentUser: null})
   }
 
-  handleBattle = team => {
-    var myTeam = team.team.split(", ").map(name => JSON.parse(JSON.stringify(this.state.superheroes.find(hero => hero.name === name))))
+  enemyTeam = (callback) => {
     var newArr = [];
     for (var i=0; i<3; i++){
       var rand = JSON.parse(JSON.stringify(this.state.superheroes[Math.floor(Math.random()*29)]))
       newArr.push(rand)
     }
-    this.setState({randomTeam: newArr.map((hero, idx) => ({...hero, hp: 100, k: idx})), battleTeam: myTeam.map((hero, idx) => ({...hero, hp: 100, k: idx}))})
+    this.setState({randomTeam: newArr.map((hero, idx) => ({...hero, hp: 100, k: idx}))}, () => {
+      if (callback) callback()
+    })
+  }
+
+  handleBattle = team => {
+    var myTeam = team.team.split(", ").map(name => JSON.parse(JSON.stringify(this.state.superheroes.find(hero => hero.name === name))))
+    this.enemyTeam()
+    this.setState({ battleTeam: myTeam.map((hero, idx) => ({...hero, hp: 100, k: idx}))})
   }
 
 
@@ -117,10 +124,12 @@ class App extends Component{
           superheroes={this.state.superheroes} isFlipped={this.handleFlip}
           deleteTeam = {this.deleteTeam} user={this.state.currentUser}
           handleBattle={this.handleBattle}/>}/>
-          <Route path = "/battle" render={() => <Battle battleTeam={this.state.battleTeam} 
+          <Route path = "/battle" render={() => <Battle 
+          battleTeam={this.state.battleTeam} 
           superheroes={this.state.superheroes}
           user={this.state.currentUser}
-          randomTeam={this.state.randomTeam}/>}/>
+          randomTeam={this.state.randomTeam}
+          defendentTeam={this.enemyTeam}/>}/>
         </Router>
       </div>
     )
