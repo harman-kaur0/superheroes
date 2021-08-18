@@ -1,4 +1,5 @@
-# Clash of Heroes
+# Clash of Heroes | <a href="https://www.loom.com/share/38764b32c5cb4548865bec776f11d765?sharedAppSource=personal_library">Demo</a>
+
 <div align="center">A  game where users can create their own super team and battle against a random team of super characters.
 </div>
 
